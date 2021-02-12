@@ -8,8 +8,6 @@ In order to run this you need to do the following command in the terminal for th
 
 This will run the API on a local : http://localhost:5000
 
----
-
 ## GET Commands
 The following are two commands to get the two different games.
 
