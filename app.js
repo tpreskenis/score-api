@@ -18,7 +18,7 @@ app.use(BodyParser.urlencoded({ extended: true }));
 
 var database, mlb_collection, nba_collection;
 
-app.listen(process.env.port, () => {
+app.listen(port, () => {
     MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
         if(error) {
             throw error;
