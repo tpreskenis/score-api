@@ -18,6 +18,8 @@ app.use(BodyParser.urlencoded({ extended: true }));
 
 var database, mlb_collection, nba_collection;
 
+const port = process.env.PORT || 3000;
+
 app.listen(port, () => {
     MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
         if(error) {
@@ -87,7 +89,8 @@ async function initialDataDeleteAndPush(url,collection) {
 
 // -- CronJob using Node Cron
 async function updateAPI (url,collection) {
-    var job = new CronJob('*/15 * * * * *', function() {
+  // Change this to 15 seconds, 15 min for app
+    var job = new CronJob('* */15 * * * *', function() {
         fetch(url)
             .then(response => {
               if (response.status === 200) {
