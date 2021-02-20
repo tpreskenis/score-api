@@ -1,8 +1,23 @@
 const Express = require("express");
+const cors = require('cors');
 const fetch = require("node-fetch");
 const BodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
 const CronJob = require('cron').CronJob;
+
+var app = Express();
+
+
+// --------
+// | CORS |
+// --------
+
+var corsOptions = {
+  origin: 'https://scoredatabaseapi.azurewebsites.net',
+  optionsSuccessStatus: 200, // For legacy browser support
+  methods: "GET, PUT"
+}
+app.use(cors(corsOptions));
 
 // --------------------------------------------
 // | Database Connection / Database Functions |
@@ -11,7 +26,6 @@ const CronJob = require('cron').CronJob;
 const CONNECTION_URL = "mongodb+srv://Timothy:TestingMongodb@cluster0.v3isc.mongodb.net/barstool_challenge?retryWrites=true&w=majority";
 const DATABASE_NAME = "barstool_challenge";
 
-var app = Express();
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
 
