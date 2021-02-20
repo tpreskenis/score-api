@@ -12,6 +12,7 @@ var app = Express();
 // | CORS |
 // --------
 
+// If larger app, limit cors to sites retriving from 
 var corsOptions = {
   origin: '*',
   optionsSuccessStatus: 200, // For legacy browser support
