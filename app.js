@@ -89,7 +89,6 @@ async function initialDataDeleteAndPush(url,collection) {
 
 // -- CronJob using Node Cron
 async function updateAPI (url,collection) {
-  // Change this to 15 seconds, 15 min for app
     var job = new CronJob('*/15 * * * * *', function() {
         fetch(url)
             .then(response => {
