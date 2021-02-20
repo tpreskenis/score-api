@@ -6,18 +6,25 @@ In order to run this you need to do the following command in the terminal for th
 
 ```node app.js```
 
-This will run the API on a local : http://localhost:5000
+OR
+
+```npm start```
+
+This will run the API on a local : http://localhost:3000
+
+Additionally it is running on Azure at : https://scoredatabaseapi.azurewebsites.net/
+
 
 ## GET Commands
 The following are two commands to get the two different games.
 
 ### /nba_game
-http://localhost:5000/nba_game
+http://localhost:3000/nba_game
 
 This will get you the information from the NBA feed.
 
 ### /mlb_game
-http://localhost:5000/mlb_game
+http://localhost:3000/mlb_game
 
 This will get you the information from the MLB feed.
 
