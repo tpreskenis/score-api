@@ -13,7 +13,7 @@ var app = Express();
 // --------
 
 var corsOptions = {
-  origin: 'https://scoredatabaseapi.azurewebsites.net',
+  origin: ['http://localhost:8080','https://kind-sand-0067ad70f.azurestaticapps.net'],
   optionsSuccessStatus: 200, // For legacy browser support
   methods: "GET, PUT"
 }
