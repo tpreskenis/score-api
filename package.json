@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "test": "mocha"
+    "test": "echo \"No test specified\""
   },
   "keywords": [],
   "author": "",
