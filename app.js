@@ -13,8 +13,9 @@ var app = Express();
 // --------
 
 // If larger app, limit cors to sites retriving from 
+// Additionally, would limit this to prevent attacks in the future
 var corsOptions = {
-  origin: '*',
+  origin: 'http://localhost:8080',
   optionsSuccessStatus: 200, // For legacy browser support
   methods: "GET, PUT"
 }
@@ -24,7 +25,8 @@ app.use(cors(corsOptions));
 // | Database Connection / Database Functions |
 // --------------------------------------------
 
-const CONNECTION_URL = "mongodb+srv://Timothy:TestingMongodb@cluster0.v3isc.mongodb.net/barstool_challenge?retryWrites=true&w=majority";
+// This is where you would place the connection string!!!!!!
+const CONNECTION_URL = "(Insert URL HERE)";
 const DATABASE_NAME = "barstool_challenge";
 
 app.use(BodyParser.json());
@@ -125,5 +127,11 @@ async function updateAPI (url,collection) {
 // -- Takes Json from URL and UPDATES it in Database
 async function updatedata(collection,response) {
     await database.collection(collection).updateOne({},{$set : {response}});
+    /*  
+      Right now I put it in the response object.  
+      This would be changed to overwrite everything.  
+      But for now I wanted to prove that it is just consitatnly updating!
+      (The App is not hooked up to the response object, but could be at anytime! / This was done for stability purposes)
+      */
         return console.log("Updated " + collection) // Feel Free to remove
 }
